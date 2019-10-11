@@ -1,0 +1,258 @@
+\documentclass[11pt]{book}
+\usepackage[brazil]{babel}
+\usepackage[T1]{fontenc}    % uso de fontes Type 1
+\usepackage[utf8]{inputenc} % usar se salvar com codificação UTF-8
+%\usepackage[top=2.5cm,left=2.5cm,right=2.5cm,bottom=2.5cm]{geometry}
+\usepackage{graphicx}       % para incluir fotos
+\usepackage{amsthm}       
+\usepackage{amsfonts,amssymb,amsxtra,empheq}
+\usepackage[mathscr]{eucal}
+\usepackage{textcomp}     % acho que permite uso de 1º 2ª, ordinais e demais coisas.
+\usepackage{icomma} 
+\usepackage{comment}
+\usepackage{color}    % cores em palavras, frases, etc. \textcolor{red}{text in red}
+\usepackage{enumerate}% controla opções do ambiente do 'enumerate'
+\usepackage{indentfirst}
+\usepackage{multicol} % permite a construção do texto colunas
+\usepackage{longtable}
+\usepackage{rotating}
+\usepackage{multirow} %permite mesclar linhas
+\usepackage{lscape}
+\usepackage{ctable}
+\usepackage{etex}
+\usepackage{setspace} % controla o espaçamento entre linhas
+\usepackage[format=hang, labelsep=quad]{caption} %legenda indentada formato da ufla
+\usepackage{natbib}                  % pacote para referêcias bibliográficas
+\usepackage{float}        % controla e define objetos flutuantes
+\usepackage{cancel}         % permite cancelar termo (risco transversal) em equações
+\usepackage{listings}         
+\usepackage{boxedminipage}    % texto em caixas
+\usepackage{capt-of} 
+\usepackage{textcomp}
+\usepackage{tocloft}
+\usepackage{fncychap}
+\usepackage{listingsutf8}
+\usepackage{times}
+\usepackage[scaled=0.85]{beramono} % usa esta nos verbatins [scaled=0.9]
+\usepackage{layouts} 
+\usepackage[urlcolor=blue,
+citecolor=red,
+colorlinks=true]{hyperref} 
+\usepackage{fancyhdr} 
+\usepackage{listingsutf8}
+
+% criar a subsubsubsection 
+\usepackage{titlesec}
+\titleclass{\subsubsubsection}{straight}[\subsection]
+
+\newcounter{subsubsubsection}[subsubsection]
+
+\renewcommand\thesubsubsubsection{\thesubsubsection.\arabic{subsubsubsection}}
+\renewcommand\theparagraph{\thesubsubsubsection.\arabic{paragraph}}
+\renewcommand\thesubparagraph{\theparagraph.\arabic{subparagraph}}
+
+\titleformat{\subsubsubsection}
+  {\normalfont\normalsize\bfseries}{\thesubsubsubsection}{1em}{}
+\titlespacing*{\subsubsubsection}
+{0pt}{3.25ex plus 1ex minus .2ex}{1.5ex plus .2ex}
+
+\makeatletter
+\renewcommand\paragraph{\@startsection{paragraph}{5}{\z@}%
+  {3.25ex \@plus1ex \@minus.2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\renewcommand\subparagraph{\@startsection{subparagraph}{6}{\parindent}
+  {3.25ex \@plus1ex \@minus .2ex}%
+  {-1em}%
+  {\normalfont\normalsize\bfseries}}
+\def\toclevel@subsubsubsection{4}
+\def\toclevel@paragraph{5}
+\def\toclevel@paragraph{6}
+\def\l@subsubsubsection{\@dottedtocline{4}{7em}{4em}}
+\def\l@paragraph{\@dottedtocline{5}{10em}{5em}}
+\def\l@subparagraph{\@dottedtocline{6}{14em}{6em}}
+\@addtoreset{subsubsubsection}{section}
+\@addtoreset{subsubsubsection}{subsection}
+\@addtoreset{paragraph}{subsubsubsection}
+\makeatother
+
+\setcounter{secnumdepth}{6}
+\setcounter{tocdepth}{6}
+
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+%\def\onehalspacing{1.5}
+
+% definir a profundidade do índice
+\renewcommand{\baselinestretch}{1.5} % espaçamento entre linha
+\renewcommand{\figurename}{FIGURA}
+\numberwithin{equation}{section}     % numerar equação por seção
+% definindo a profundidade da identação
+\setlength{\parindent}{1.25cm}
+%Comandos personalizados para palavras, réguas, etc. ================================
+\newcommand{\lin}{\noindent \rule[4mm]{\textwidth}{0.1ex}} % régua horizontal
+% Comandos personalizados para palavras, réguas, etc. ================================
+% configurações do fancyhdr para cabeçalhos e rodapé =================================
+%\pagestyle{fancy}
+%\lhead{}              % cabeçalho esquerdo
+%\chead{}              % cabeçalho central
+%\rhead{\thepage}              % cabeçalho direito, \bfseries é de boldfont, negrito
+%\lfoot{}        % rodapé esquerdo {Allaman, I.B.}
+%\cfoot{}      % rodapé central
+%\rfoot{}              % rodapé direito, \thepage é o número da página
+\bibpunct{(}{)}{;}{a}{,}{,}      % opções que definem estilo
+\setlength{\bibhang}{0em} % indentação da referência
+\setlength{\bibsep}{2em}  % espaçamento vertical entre as citações
+\renewcommand{\bibsection}{} 
+\onehalfspace       % espaçamento 1.5 linha no texto \begin{spacing}{1.0}  
+\newcommand{\code}[1]{\textcolor[rgb]{0.858, 0.188, 0.478}{#1}}
+
+\newtheorem{exem}{EXEMPLO}[section]
+
+%+++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+%+++++++++++++++++++++++++         Aqui começa o documento         ++++++++++++++++++%
+%++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++++%
+
+\begin{document}
+
+<<echo=F, results='hide'>>=
+source('codKnitr.r')
+@
+%====================================================================================%
+%===========================        CAPA CAPA CAPA CAPA      ========================%
+%====================================================================================%  
+\begin{titlepage}
+
+  \begin{center}
+
+  % Title
+    \HRule \\[0.4cm]
+    {\huge \bfseries INTRODUÇÃO AO SOFTWARE R}
+    \\[0.4cm]
+    \HRule \\
+    \vspace{5cm}
+    
+      \begin{minipage}{\textwidth}
+      \begin{flushright} \LARGE
+         \emph{Ivan Bezerra Allaman}\\
+         \emph{José Cláudio Faria} 
+      \end{flushright}
+  \end{minipage}
+
+  \vfill
+
+  % Bottom of the page
+  
+  {\large \today \\Ilhéus/BA}
+
+\end{center}
+
+\end{titlepage}
+
+%===========================================================================================================================================%
+%====================================                                PREFÁCIO                                           ====================%
+%===========================================================================================================================================%
+\newpage
+\thispagestyle{empty}
+
+\input{../sub/prefacio}
+
+%===========================================================================================================================================%
+%====================================                                SIMBOLOGIA                                         ====================%
+%===========================================================================================================================================%
+\newpage
+\thispagestyle{empty}
+
+\input{../sub/simbologia_adotada}
+
+%===========================================================================================================================================%
+%====================================                               RECOMENDAÇÕES                                       ====================%
+%===========================================================================================================================================%
+\newpage
+\thispagestyle{empty}
+
+\input{../sub/recomendacoes}
+
+%===================================================================================
+%======================== SUMÁRIO SUMÁRIO SUMÁRIO SUMÁRIO ==========================
+%===================================================================================
+\newpage
+
+\vspace*{0.3cm}
+\renewcommand{\contentsname}{\normalsize{SUMÁRIO}} 
+%\addcontentsline{toc}{section}{\protect SUMÁRIO}
+\begin{spacing}{1.43}
+  \hfill Página \vspace*{-1.9cm}
+  % gera o índice
+\end{spacing}
+\tableofcontents\thispagestyle{empty}  
+
+\newpage
+\pagestyle{plain} \pagenumbering{roman}
+\renewcommand{\listtablename}{\centering{\normalsize{LISTA DE TABELAS}}}
+\begin{center}
+  \vspace*{0.1cm}
+  \addcontentsline{toc}{section}{\protect LISTA DE TABELAS}
+  \hfill \textbf{Página} \vspace*{-1.9cm}
+  \listoftables
+\end{center}
+
+\renewcommand{\tablename}{TABELA}
+%===================================================================================
+%========================= SUMÁRIO SUMÁRIO SUMÁRIO SUMÁRIO =========================
+%===================================================================================  
+
+\newpage
+\pagenumbering{arabic}
+
+\chapter{Introdução}
+<<child='../sub/C1_introducao_inferencia.Rnw'>>=
+@
+
+\chapter{Distribuições amostrais}
+<<child='../sub/C2_distribuicoes_amostrais.Rnw'>>=
+@
+
+\chapter{Intervalos de Confiança}
+<<child='../sub/C3_Introducao_intervalos_confianca.Rnw'>>=
+@
+
+<<child='../sub/C4_Intervalo_media.Rnw'>>=
+@
+
+<<child='../sub/C5_Intervalo_proporcao.Rnw'>>=
+@
+
+\chapter{Testes de hipóteses considerando uma população}
+<<child='../sub/C6_Introducao_hipoteses.Rnw'>>=
+@
+
+<<child='../sub/C7_Hipotese_media.Rnw'>>=
+@
+
+<<child='../sub/C8_Hipotese_proporcao.Rnw'>>=
+@
+
+% \chapter{Testes de hipóteses considerando duas populações}
+% 
+% <<child='../sub/C9_Hipotese_difmedias.Rnw'>>=
+% @
+% 
+% <<child='../sub/C10_Hipotese_difmedia_relac.Rnw'>>=
+% @
+% 
+% <<child='../sub/C11_Hipotese_difprop.Rnw'>>=
+% @
+% 
+% <<child='../sub/C12_Dados_categoricos.Rnw'>>=
+% @
+% 
+% <<child='../sub/C13_Correlacao.Rnw'>>=
+% @
+% 
+% <<child='../sub/C14_Reg_simples.Rnw'>>=
+% @
+%\bibliography{/home/jcfaria/.bib/jcfaria}
+%\bibliography{./../bib/jcfaria}
+ 
+
+\end{document}

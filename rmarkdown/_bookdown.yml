@@ -1,0 +1,6 @@
+book_filename: "LEC_Rbook"
+delete_merged_file: true
+language:
+  ui:
+    chapter_name: "Capítulo "
+output_dir: "docs"

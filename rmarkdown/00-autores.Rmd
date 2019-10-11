@@ -1,0 +1,9 @@
+# About the Authors {#author .unnumbered}
+
+Este é o primeiro livro elaborado pelo Ivan Bezerra Allaman e o segundo pelo José Cláudio Faria.
+
+## Ivan Bezerra Allaman {-}
+
+Nascido em Campo Grande, Mato Grosso do Sul, formou-se em Zootecnia pela Universidade Federal de Mato Grosso do Sul em agosto de 2005. Em 2006, ingressou no programa de pós-graduação em Zootecnia na Universidade Federal de Lavras, Minas Gerais, finalizando o doutorado em Zootecnia no ano de 2011. No período de pós-graduação, o software R foi apresentado pelo professor João Domingos Scalon na disciplina de Regressão. De 2008 a 2011, o uso do R foi intenso, mais de modo básico, e com aprofundamento superficial. Em 2011, o ingresso como professor visitante de estatística na Universidade Estadual de Santa Cruz e o convite do professor José Cláudio Faria para trabalhar no desenvolvimento de pacotes para o R, foi primordial para o aprofundamento necessário na elaboração deste livro. 
+
+## José Cláudio Faria {-}

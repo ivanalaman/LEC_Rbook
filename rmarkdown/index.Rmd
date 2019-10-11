@@ -1,0 +1,15 @@
+--- 
+title: "Introdução ao software R"
+author: "Ivan Bezerra Allaman, José Cláudio Faria"
+date: "`r Sys.Date()`"
+site: bookdown::bookdown_site
+documentclass: book
+bibliography: [book.bib]
+biblio-style: apalike
+link-citations: yes
+description: "Este livro é fruto da experiência dos autores com o software R na pesquisa, ensino e extensão"
+---
+
+# Prefácio {-}
+
+## Agradecimentos {-}
