@@ -1,4 +1,4 @@
-# About the Authors {#author .unnumbered}
+# Sobre os autores {#author .unnumbered}
 
 Este é o primeiro livro elaborado pelo Ivan Bezerra Allaman e o segundo pelo José Cláudio Faria.
 
